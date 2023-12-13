@@ -5,12 +5,14 @@ from openai import OpenAI
 
 class OpenAIAssistant:
     def __init__(self, api_key=None, name="MrRobot", instructions="give me the latest news in Artifical Intelligence \
-         for developers", tools=None, model="gpt-3.5-turbo"):
+         for developers", tools=[None], model="gpt-3.5-turbo"):
         load_dotenv()
         # self.api_key = api_key
+        self.client = OpenAI()
+
         self.name = name
         self.instructions = instructions
-        self.tools = tools
+        # self.tools = tools
         self.model = model
         self.assistant = self.create_assistant()
 
@@ -20,9 +22,15 @@ class OpenAIAssistant:
         pass
     
     def create_assistant(self):
-        kwargs = {"name": self.name, "instructions": self.instructions, "tools": self.tools, "model": self.model}
-        assistant = client.beta.assistants.create(**kwargs)
-        return assistant
+        kwargs = {"name": self.name, "instructions": self.instructions, "model": self.model}
+        try:
+            assistant = self.client.beta.assistants.create(**kwargs)
+            print(assistant)
+            return assistant
+
+        except Exception as e:
+            print(str(e))
+        
 
     def initiate_interaction(self, input_message):
         # Send the input message to the Assistant to initiate the interaction
@@ -35,3 +43,6 @@ class OpenAIAssistant:
     def get_response_output(self):
         # Retrieve and display the response to the user's message
         pass
+
+roboto = OpenAIAssistant()
+
