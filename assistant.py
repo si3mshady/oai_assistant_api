@@ -1,4 +1,4 @@
-import os
+import os, shelve
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -7,29 +7,44 @@ class OpenAIAssistant:
     def __init__(self, api_key=None, name="MrRobot", instructions="give me the latest news in Artifical Intelligence \
          for developers", tools=[None], model="gpt-3.5-turbo"):
         load_dotenv()
-        # self.api_key = api_key
         self.client = OpenAI()
 
         self.name = name
         self.instructions = instructions
         # self.tools = tools
         self.model = model
-        self.assistant = self.create_assistant()
+        self.assistant = None
 
-        # Initialize the OpenAI API client with the provided key and assistant parameters
-    
-    def check_if_thread_exists(self):
-        pass
+    def save_to_db(self, key, value):
+        with shelve.open('db') as db:
+            db[key] = value
+
+    def check_thread_exists(self,key):
+        with shelve.open('db') as db:
+            if key in db:
+                return True
+            pass
     
     def create_assistant(self):
+    
         kwargs = {"name": self.name, "instructions": self.instructions, "model": self.model}
         try:
             assistant = self.client.beta.assistants.create(**kwargs)
             print(assistant)
-            return assistant
+            self.assistant =  assistant
+            
 
         except Exception as e:
             print(str(e))
+
+    def create_thread(self):
+        result = self.check_thread_exists(self.name)
+        if not result: 
+            thread = self.client.beta.threads.create()
+            self.save_to_db(self.name, thread.id)
+            print('new thread saved to db')
+            
+            
         
 
     def initiate_interaction(self, input_message):
@@ -45,4 +60,4 @@ class OpenAIAssistant:
         pass
 
 roboto = OpenAIAssistant()
-
+roboto.create_thread()
