@@ -15,28 +15,30 @@ class OpenAIAssistant:
         self.name = assistant_name
         self.instructions = instructions
         self.model = model
-        self.assistant = None #updated with self.create(assistant)
-        # self.message = "Do your best to answer the question"
-        # self.create_prompt_message = "When Is Veterans Day each year in America?"
+        self.assistant = self.create_assistant_on_init()
+
     
     def run_errand_get_messages(self, thread_id, assistant_id ,instructions):
-        kwargs = {
-            "thread_id": thread_id,
-            "assistant_id": assistant_id,
-            "instructions": instructions
-        }
-        run = self.client.beta.threads.runs.create(**kwargs)
+        try: 
+            kwargs = {
+                "thread_id": thread_id,
+                "assistant_id": assistant_id,
+                "instructions": instructions
+            }
+            run = self.client.beta.threads.runs.create(**kwargs)
 
-        while run.status != 'completed':
-            time.sleep(5)
-            run = self.client.beta.threads.runs.retrieve(
-            thread_id=thread_id,
-            run_id=run.id
-            )
-            
-        messages = self.client.beta.threads.messages.list( thread_id=thread_id )
-        print("\n\n" + messages.data[0].content[0].text.value + "\n\n")
-        return messages
+            while run.status != 'completed':
+                time.sleep(5)
+                run = self.client.beta.threads.runs.retrieve(
+                thread_id=thread_id,
+                run_id=run.id
+                )
+
+            messages = self.client.beta.threads.messages.list( thread_id=thread_id )
+            print("\n\n" + messages.data[0].content[0].text.value + "\n\n")
+            return messages
+        except Exception as e:
+            print(str(e))
         
       
 
@@ -76,10 +78,10 @@ class OpenAIAssistant:
        
         
 
-roboto = OpenAIAssistant()
-roboto.create_assistant()
-resp = roboto.create_thread()
-if not resp:
-    roboto.get_thread_id()
-roboto.create_message(roboto.create_prompt_message)
-roboto.run_errand(roboto.thread_id,roboto.assistant.id,roboto.instructions)
+# roboto = OpenAIAssistant()
+# roboto.create_assistant()
+# resp = roboto.create_thread()
+# if not resp:
+#     roboto.get_thread_id()
+# roboto.create_message(roboto.create_prompt_message)
+# roboto.run_errand(roboto.thread_id,roboto.assistant.id,roboto.instructions)
