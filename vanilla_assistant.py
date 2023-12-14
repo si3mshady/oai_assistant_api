@@ -58,7 +58,6 @@ class OpenAIAssistant:
         kwargs = {"name": self.name, "instructions": self.instructions, "model": self.model}
         try:
             assistant = self.client.beta.assistants.create(**kwargs)
-            print(assistant)
             self.assistant =  assistant           
             return self.assistant
 
@@ -77,11 +76,3 @@ class OpenAIAssistant:
 
        
         
-
-# roboto = OpenAIAssistant()
-# roboto.create_assistant()
-# resp = roboto.create_thread()
-# if not resp:
-#     roboto.get_thread_id()
-# roboto.create_message(roboto.create_prompt_message)
-# roboto.run_errand(roboto.thread_id,roboto.assistant.id,roboto.instructions)
