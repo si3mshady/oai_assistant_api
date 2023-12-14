@@ -35,7 +35,7 @@ class OpenAIAssistant:
             )
         messages = self.client.beta.threads.messages.list( thread_id=thread_id )
         print(messages.data[0].content[0].text.value)
-        # print(messages)
+        
 
         
 
@@ -49,7 +49,7 @@ class OpenAIAssistant:
         data = {"thread_id": id, "role": "user", "content": message}
 
         message = self.client.beta.threads.messages.create(**data)
-        # print(message)
+        
         
 
     def get_thread_id(self):
