@@ -5,8 +5,7 @@ from openai import OpenAI
 
 class OpenAIAssistant:
     def __init__(self, api_key=None, name="MrRobot", \
-        instructions="give me the latest news in Artifical Intelligence \
-        for developers", tools=None, model="gpt-3.5-turbo"):
+        instructions="Provide an answer for all questions", tools=None, model="gpt-3.5-turbo"):
         load_dotenv()
         self.client = OpenAI()
         self.thread_id = None #updated with self.create_thread
@@ -16,8 +15,8 @@ class OpenAIAssistant:
         self.model = model
         self.assistant = None #updated with self.create(assistant)
         self.active_messages = []
-        self.message = "Do you best to service the question or task being asked or stated"
-        self.create_prompt_message = "What day is Christmas in America?"
+        # self.message = "Do your best to answer the question"
+        self.create_prompt_message = "When Is Veterans Day each year in America?"
     
     def run_errand(self, thread_id, assistant_id ,instructions):
         kwargs = {
@@ -34,10 +33,9 @@ class OpenAIAssistant:
             run_id=run.id
             )
         messages = self.client.beta.threads.messages.list( thread_id=thread_id )
-        print(messages.data[0].content[0].text.value)
+        print("\n\n" + messages.data[0].content[0].text.value + "\n\n")
         
-
-        
+      
 
     def create_message(self, message):
         id = self.get_thread_id()
@@ -57,7 +55,6 @@ class OpenAIAssistant:
              # Retrieve the value associated with the key
             value = db[self.name]
             # Do something with the value
-            print(value)
             self.thread_id = value
             return value
 
@@ -88,12 +85,11 @@ class OpenAIAssistant:
             thread = self.client.beta.threads.create()
             self.save_to_db(self.name, thread.id)
             self.thread_id = thread.id
+            print(self.thread_id)
             print('new thread saved to db')
             return thread.id 
 
-   
-            
-            
+       
         
 
 roboto = OpenAIAssistant()
@@ -102,4 +98,4 @@ resp = roboto.create_thread()
 if not resp:
     roboto.get_thread_id()
 roboto.create_message(roboto.create_prompt_message)
-roboto.run_errand(roboto.thread_id,roboto.assistant.id,roboto.message)
+roboto.run_errand(roboto.thread_id,roboto.assistant.id,roboto.instructions)
