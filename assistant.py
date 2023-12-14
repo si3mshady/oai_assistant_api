@@ -16,8 +16,30 @@ class OpenAIAssistant:
         self.model = model
         self.assistant = None #updated with self.create(assistant)
         self.active_messages = []
+        self.message = "Do you best to service the question or task being asked or stated"
+        self.create_prompt_message = "What day is Christmas in America?"
+    
+    def run_errand(self, thread_id, assistant_id ,instructions):
+        kwargs = {
+            "thread_id": thread_id,
+            "assistant_id": assistant_id,
+            "instructions": instructions
+        }
+        run = self.client.beta.threads.runs.create(**kwargs)
+        import time
+        while run.status == 'queued':
+            time.sleep(5)
+            run = self.client.beta.threads.runs.retrieve(
+            thread_id=thread_id,
+            run_id=run.id
+            )
+        messages = self.client.beta.threads.messages.list( thread_id=thread_id )
+        print(messages.data[0].content[0].text.value)
+        # print(messages)
 
-    def create_message(self, message="When is Christmas in America?"):
+        
+
+    def create_message(self, message):
         id = self.get_thread_id()
         if not id:
             self.create_thread()
@@ -27,7 +49,7 @@ class OpenAIAssistant:
         data = {"thread_id": id, "role": "user", "content": message}
 
         message = self.client.beta.threads.messages.create(**data)
-        print(message)
+        # print(message)
         
 
     def get_thread_id(self):
@@ -36,6 +58,7 @@ class OpenAIAssistant:
             value = db[self.name]
             # Do something with the value
             print(value)
+            self.thread_id = value
             return value
 
     def save_to_db(self, key, value):
@@ -74,5 +97,9 @@ class OpenAIAssistant:
         
 
 roboto = OpenAIAssistant()
-roboto.create_thread()
-roboto.create_message()
+roboto.create_assistant()
+resp = roboto.create_thread()
+if not resp:
+    roboto.get_thread_id()
+roboto.create_message(roboto.create_prompt_message)
+roboto.run_errand(roboto.thread_id,roboto.assistant.id,roboto.message)
