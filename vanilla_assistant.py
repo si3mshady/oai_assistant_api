@@ -1,7 +1,7 @@
 # import os
 from dotenv import load_dotenv
 from openai import OpenAI
-import time
+import time, json
 
 
 
@@ -13,9 +13,30 @@ class OpenAIAssistant:
         self.client = OpenAI()
         self.thread_id = None #updated with self.create_thread
         self.name = assistant_name
-        self.instructions = instructions
+        self.instructions = self.update_system_prompt()
         self.model = model
         self.assistant = self.create_assistant_on_init()
+    
+    def update_system_prompt(self):
+        schema = {
+        "workout_plan_name":"Beginner Workout",
+        "goal":"Weight Loss",
+        "workouts":[{
+            "name":"Dumbell Curls",
+            "sets":3,
+            "repetitions":3,
+            "rest":"20",
+            "rest_unit":"minutes",
+            "difficulty":"easy",
+            "body_part_focus":"chest",
+            "equipments_needed":["Dumbell", "Bench"],
+            "excercise_category":"Muscle Gain"
+        },{}]}
+
+        val = f"{self.instructions} in the format {json.dumps(schema)}"
+
+        return val
+
 
     
     def run_errand_get_messages(self, thread_id, assistant_id ,instructions):
