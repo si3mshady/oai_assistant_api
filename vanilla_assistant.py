@@ -13,7 +13,7 @@ class OpenAIAssistant:
         self.client = OpenAI()
         self.thread_id = None #updated with self.create_thread
         self.name = assistant_name
-        self.instructions = self.update_system_prompt()
+        self.instructions =   instructions
         self.model = model
         self.assistant = self.create_assistant_on_init()
     
@@ -34,6 +34,8 @@ class OpenAIAssistant:
         },{}]}
 
         val = f"{self.instructions} in the format {json.dumps(schema)}"
+
+        self.instructions = val
 
         return val
 
@@ -94,6 +96,16 @@ class OpenAIAssistant:
         except Exception as e:
             print(str(e))
 
+
+agent = OpenAIAssistant()
+
+agent.update_system_prompt()
+
+agent.create_thread()
+
+agent.create_message(agent.thread_id,"Give me a solid workout plan")
+res = agent.run_errand_get_messages(agent.thread_id,agent.assistant.id,agent.instructions)
+print(res)
 
        
         
