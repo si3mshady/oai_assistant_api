@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+      "training_program": {
+          "type": "object",
+          "properties": {
+              "sport_name": {"type": "string"},
+              "name": {"type": "string"},
+              "description": {"type": "string"},
+              "level": {"type": "string"},
+              "position": {"type": "string", "nullable": true},
+              "position_focus": {"type": "string", "nullable": true},
+              "training_sets": {
+                  "type": "array",
+                  "items": {"$ref": "#/definitions/training_set"}
+              }
+          },
+          "required": ["id", "sport_name", "name", "level"],
+          "additionalProperties": false
+      }
+  },
+  "definitions": {
+      "training_set": {
+          "type": "object",
+          "properties": {
+              "name": {"type": "string"},
+              "description": {"type": "string"},
+              "duration": {"type": "integer"},
+              "repetitions": {"type": "integer"}
+          },
+          "required": ["id", "name"],
+          "additionalProperties": false
+      }
+  },
+  "required": ["training_program"],
+  "additionalProperties": false
+}

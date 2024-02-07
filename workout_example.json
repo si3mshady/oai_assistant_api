@@ -1,0 +1,46 @@
+{
+    "properties": {
+      "training_program": {
+        "sport_name": "Football",
+        "name": "Football Strength and Conditioning",
+        "description": "This workout emphasizes strength and conditioning for football players.",
+        "level": "Intermediate",
+        "position": "Linebacker",
+        "position_focus": "Strength and Endurance",
+        "training_sets": [
+          {
+            "name": "Squat Variations",
+            "description": "Perform various squat variations to strengthen leg muscles.",
+            "duration": 30,
+            "repetitions": 4
+    
+          },
+          {
+            "name": "Agility Cone Drills",
+            "description": "Improve agility and quickness with cone drills.",
+            "duration": 20,
+            "repetitions": 6
+           
+          },
+          {
+            "name": "Push-up Variations",
+            "description": "Enhance upper body strength with push-up variations.",
+            "duration": 15,
+            "repetitions": 3
+          
+          }
+        ]
+      }
+    },
+    "definitions": {
+      "training_set": {
+        "name": "Warm-up Jog",
+        "description": "Start with a light jog to warm up the body.",
+        "duration": 10,
+        "repetitions": 1
+      }
+    },
+    "required": ["training_program"],
+    "additionalProperties": false
+  }
+  
