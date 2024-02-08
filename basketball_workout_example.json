@@ -1,0 +1,43 @@
+{
+    "properties": {
+      "training_program": {
+        "sport_name": "Basketball",
+        "name": "Basketball Conditioning and Skills",
+        "description": "This program focuses on conditioning and skill development for basketball players.",
+        "level": "Intermediate",
+        "position": "Basketball Player",
+        "position_focus": "Endurance, Agility, and Shooting",
+        "training_sets": [
+          {
+            "name": "Suicides",
+            "description": "Run suicides to improve speed, agility, and endurance.",
+            "duration": 30,
+            "repetitions": 6
+          },
+          {
+            "name": "Shooting Drills",
+            "description": "Practice shooting drills to improve shooting accuracy and form.",
+            "duration": 20,
+            "repetitions": 8
+          },
+          {
+            "name": "Defensive Drills",
+            "description": "Focus on defensive skills with defensive stance and blocking drills.",
+            "duration": 20,
+            "repetitions": 6
+          }
+        ]
+      }
+    },
+    "definitions": {
+      "training_set": {
+        "name": "Warm-up Routine",
+        "description": "Start with a dynamic warm-up routine to prepare the body for training.",
+        "duration": 10,
+        "repetitions": 1
+      }
+    },
+    "required": ["training_program"],
+    "additionalProperties": false
+  }
+  

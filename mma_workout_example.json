@@ -1,0 +1,42 @@
+{
+  "properties": {
+    "training_program": {
+      "sport_name": "MMA",
+      "name": "MMA Conditioning and Techniques",
+      "description": "This program focuses on conditioning and techniques for MMA fighters.",
+      "level": "Intermediate",
+      "position": "MMA Fighter",
+      "position_focus": "Strength, Endurance, and Martial Arts Skills",
+      "training_sets": [
+        {
+          "name": "Bag Work",
+          "description": "Practice striking techniques on the heavy bag to improve power and precision.",
+          "duration": 30,
+          "repetitions": 5
+        },
+        {
+          "name": "Grappling Drills",
+          "description": "Train grappling techniques and transitions with partner drills.",
+          "duration": 25,
+          "repetitions": 6
+        },
+        {
+          "name": "Sparring Sessions",
+          "description": "Engage in controlled sparring sessions to apply techniques in a live scenario.",
+          "duration": 20,
+          "repetitions": 4
+        }
+      ]
+    }
+  },
+  "definitions": {
+    "training_set": {
+      "name": "Warm-up Routine",
+      "description": "Start with a dynamic warm-up routine to prepare the body for training.",
+      "duration": 15,
+      "repetitions": 1
+    }
+  },
+  "required": ["training_program"],
+  "additionalProperties": false
+}

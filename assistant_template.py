@@ -31,7 +31,7 @@ def get_assistant_file_mapping():
     return res
 
 class Retrieval_Assistant:
-    def __init__(self, assistant_name="Soccer_BOT", \
+    def __init__(self, assistant_name="MMA_Assistant", \
        instructions="You are a elite workout assistant. You must use the document uploaded  \
        to create new training programs with definitions is json format. \
        You must include BOTH a 'definitions' key and object and 'training_program' key and object with each response. \
@@ -47,7 +47,7 @@ class Retrieval_Assistant:
        self.assistant = None
        self.file_ids = []
        self.json_file = "generic.json"
-       self.json_response = "workout_example.json"
+       self.json_response = "mma_workout_example.json"
        self.file_paths = []
     
     def upload_file(self, file_path):
@@ -158,7 +158,7 @@ class Retrieval_Assistant:
 #create message 
 #get response 
 
-file_name_a = "Soccer.docx"
+file_name_a = "MMA_Output.json"
 
 
 ra = Retrieval_Assistant()
@@ -170,7 +170,7 @@ time.sleep(3)
 
 ra.create_assistant_on_init()
 ra.create_thread()
-ra.create_message_in_tread(f"Make a new a workout plan based on Soccer. \
+ra.create_message_in_tread(f"Make a new a workout plan based on MMA. \
  The response should be in json and include both training_program and definitions keys for the response")
 res = ra.run_errand_get_messages(ra.thread_id,ra.assistant.id,ra.instructions)
 print(res)

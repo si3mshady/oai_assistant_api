@@ -1,0 +1,43 @@
+{
+    "properties": {
+      "training_program": {
+        "sport_name": "Football",
+        "name": "Football Strength and Conditioning",
+        "description": "This program focuses on strength and conditioning for football players.",
+        "level": "Intermediate",
+        "position": "Football Player",
+        "position_focus": "Strength, Speed, and Endurance",
+        "training_sets": [
+          {
+            "name": "Sprint Intervals",
+            "description": "Perform sprint intervals to improve speed and endurance.",
+            "duration": 20,
+            "repetitions": 8
+          },
+          {
+            "name": "Weighted Lunges",
+            "description": "Execute weighted lunges to strengthen leg muscles.",
+            "duration": 20,
+            "repetitions": 4
+          },
+          {
+            "name": "Agility Drills",
+            "description": "Improve agility with ladder drills and cone drills.",
+            "duration": 15,
+            "repetitions": 6
+          }
+        ]
+      }
+    },
+    "definitions": {
+      "training_set": {
+        "name": "Warm-up Routine",
+        "description": "Start with a comprehensive warm-up routine to prepare the body for training.",
+        "duration": 10,
+        "repetitions": 1
+      }
+    },
+    "required": ["training_program"],
+    "additionalProperties": false
+  }
+  

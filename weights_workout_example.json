@@ -1,0 +1,43 @@
+{
+    "properties": {
+      "training_program": {
+        "sport_name": "Weightlifting",
+        "name": "Weightlifting Strength Program",
+        "description": "This program focuses on strength development for weightlifters.",
+        "level": "Intermediate",
+        "position": "Weightlifter",
+        "position_focus": "Strength and Power",
+        "training_sets": [
+          {
+            "name": "Back Squats",
+            "description": "Perform back squats to build lower body strength.",
+            "duration": 45,
+            "repetitions": 5
+          },
+          {
+            "name": "Deadlifts",
+            "description": "Execute deadlifts to develop overall strength.",
+            "duration": 30,
+            "repetitions": 5
+          },
+          {
+            "name": "Bench Press",
+            "description": "Perform bench press to strengthen the chest, shoulders, and arms.",
+            "duration": 30,
+            "repetitions": 5
+          }
+        ]
+      }
+    },
+    "definitions": {
+      "training_set": {
+        "name": "Warm-up Routine",
+        "description": "Start with a comprehensive warm-up routine to prepare the body for lifting.",
+        "duration": 15,
+        "repetitions": 1
+      }
+    },
+    "required": ["training_program"],
+    "additionalProperties": false
+  }
+  

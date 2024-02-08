@@ -1,0 +1,43 @@
+{
+    "properties": {
+      "training_program": {
+        "sport_name": "Soccer",
+        "name": "Soccer Conditioning and Skills",
+        "description": "This program focuses on conditioning and skill development for soccer players.",
+        "level": "Intermediate",
+        "position": "Soccer Player",
+        "position_focus": "Endurance, Agility, and Technique",
+        "training_sets": [
+          {
+            "name": "Interval Running",
+            "description": "Perform interval running to improve cardiovascular endurance.",
+            "duration": 25,
+            "repetitions": 6
+          },
+          {
+            "name": "Dribbling Drills",
+            "description": "Practice dribbling drills to improve ball control and footwork.",
+            "duration": 20,
+            "repetitions": 8
+          },
+          {
+            "name": "Passing Accuracy",
+            "description": "Focus on passing accuracy and technique with passing drills.",
+            "duration": 15,
+            "repetitions": 10
+          }
+        ]
+      }
+    },
+    "definitions": {
+      "training_set": {
+        "name": "Warm-up Routine",
+        "description": "Start with a dynamic warm-up routine to prepare the body for training.",
+        "duration": 10,
+        "repetitions": 1
+      }
+    },
+    "required": ["training_program"],
+    "additionalProperties": false
+  }
+  

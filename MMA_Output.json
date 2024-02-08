@@ -1,0 +1,94 @@
+{
+    "Introduction": {
+    "key": "Introduction",
+    "content": "This MMA training session focuses on a full body strength and power workout, designed to keep athletes ready for high-level competition such as the UFC. The workout emphasizes a condensed conjugate peaking phase, integrating multiple fitness aspects such as speed, power, and overall fitness improvement. The training is led by a professional coach, aiming to optimize the athlete's performance through a series of targeted exercises. The session is structured to cater to both professional and semi-professional MMA athletes, enhancing their readiness and conditioning for competitive environments."
+    },
+    "Exercises": {
+    "key": "Exercises",
+    "content": [
+    {
+    "name": "T-Spine Rotation",
+    "repetitions": "Not specified",
+    "instructions": "Maintain a tall posture and rotate through the thoracic spine, performing steps and rotations.",
+    "training_environment": "Open space for rotational movement",
+    "intended_outcome": "Improve spinal mobility and core rotation."
+    },
+    {
+    "name": "Lateral Chain Work",
+    "repetitions": "Not specified",
+    "instructions": "Perform back steps with hip loading and opening on each side.",
+    "training_environment": "Space for lateral movement",
+    "intended_outcome": "Strengthen lateral stability and hip mobility."
+    },
+    {
+    "name": "Reactive Knee Drives",
+    "repetitions": "Not specified",
+    "instructions": "Perform reactive movements with a focus on keeping the knee straight down.",
+    "training_environment": "Stable ground for balance",
+    "intended_outcome": "Enhance balance and reactive strength."
+    },
+    {
+    "name": "Marching Drills",
+    "repetitions": "Not specified",
+    "instructions": "Execute marching drills with increased aggression, ensuring knee alignment.",
+    "training_environment": "Flat surface for consistent marching",
+    "intended_outcome": "Improve lower body coordination and strength."
+    },
+    {
+    "name": "High Knees",
+    "repetitions": "Not specified",
+    "instructions": "Perform high knees while maintaining a tall chest and high hips.",
+    "training_environment": "Space for dynamic movement",
+    "intended_outcome": "Enhance hip mobility and cardio."
+    },
+    {
+    "name": "Spider-Man Drills",
+    "repetitions": "Not specified",
+    "instructions": "Perform dynamic stretches resembling Spider-Man movements.",
+    "training_environment": "Mat or soft surface",
+    "intended_outcome": "Increase hip mobility and flexibility."
+    },
+    {
+    "name": "Hindu Push-Ups",
+    "repetitions": "Not specified",
+    "instructions": "Execute Hindu push-ups with focus on form and head position.",
+    "training_environment": "Mat or firm surface",
+    "intended_outcome": "Strengthen upper body and enhance mobility."
+    },
+    {
+    "name": "Chest and Overhead Throws",
+    "repetitions": "10 second intervals, four rounds",
+    "instructions": "Perform rapid-fire chest and overhead throws against a wall.",
+    "training_environment": "Wall space for throws",
+    "intended_outcome": "Develop explosive upper body power."
+    },
+    {
+    "name": "Rotational Tosses",
+    "repetitions": "Not specified",
+    "instructions": "Execute underhand rotational tosses with a back step.",
+    "training_environment": "Open space for rotational movement",
+    "intended_outcome": "Enhance rotational power and coordination."
+    },
+    {
+    "name": "Sumo Deadlifts",
+    "repetitions": "Sets leading to heavy three reps at RPE 9.5",
+    "instructions": "Perform sumo deadlifts with focus on leg locking and hip driving.",
+    "training_environment": "Area with barbell and weights",
+    "intended_outcome": "Build lower body strength and power."
+    },
+    {
+    "name": "Lunge Variations",
+    "repetitions": "Not specified",
+    "instructions": "Execute 45-degree step back lunges with rapid retraction.",
+    "training_environment": "Space for lunging and movement",
+    "intended_outcome": "Improve leg strength and dynamic movement."
+    }
+    ]
+    },
+    "Coaching Insights": {
+    "key": "Coaching Insights",
+    "content": "The coach emphasizes the importance of maintaining proper posture, knee alignment, and muscle engagement throughout the exercises. He advises increasing the intensity and aggression in certain drills for enhanced results and highlights the need for precise movement control for maximum effectiveness."
+    },
+    "Tactical Strategies": {
+    "key": "Tactical Strategies",
+    "content": "The coach discusses the significance of rotational power in MMA for
