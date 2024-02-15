@@ -2,7 +2,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import time, json, re
 import datetime
-
+import tiktoken
 
 current_datetime = datetime.datetime.now()
 
@@ -11,6 +11,13 @@ load_dotenv()
 client = OpenAI()
 
 # https://platform.openai.com/docs/assistants/tools/knowledge-retrieval
+
+def token_count(string, model="gpt-3.5-turbo-1106"):
+    encoding = tiktoken.encoding_for_model(model)
+    count = len(encoding.encode(string))
+    return count
+
+
 
 #get list of assistants
 def list_assistants(order="desc",limit=20):
@@ -158,21 +165,24 @@ class Retrieval_Assistant:
 #create message 
 #get response 
 
+
+def token_count(string, model="gpt-3.5-turbo-1106"):
+    encoding = tiktoken.encoding_for_model(model)
+    count = len(encoding.encode(string))
+    return count
+
 file_name_a = "MMA_Output.json"
-
-
 ra = Retrieval_Assistant()
-
 ra.update_system_prompt()
-
 ra.upload_file(file_name_a)
-time.sleep(3)
-
 ra.create_assistant_on_init()
 ra.create_thread()
-ra.create_message_in_tread(f"Make a new a workout plan based on MMA. \
- The response should be in json and include both training_program and definitions keys for the response")
+
+msg = "Make a new a workout plan based on MMA.  The response should be in json and include both training_program and definitions keys for the response"
+print("Input tokens " + str(token_count(msg)))
+ra.create_message_in_tread(msg)
 res = ra.run_errand_get_messages(ra.thread_id,ra.assistant.id,ra.instructions)
-print(res)
+print(res[:199])
+print("Output Tokens " + str(token_count(str(res))))
 # print(ra.assistant)
 
