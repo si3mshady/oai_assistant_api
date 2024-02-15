@@ -121,7 +121,7 @@ class Retrieval_Assistant:
             clean_message =  messages.data[0].content[0].text.value 
 
             # return {"response": str(clean_message)}
-            return clean_message
+            return clean_message 
         except Exception as e:
             print(str(e))
 
@@ -182,7 +182,7 @@ msg = "Make a new a workout plan based on MMA.  The response should be in json a
 print("Input tokens " + str(token_count(msg)))
 ra.create_message_in_tread(msg)
 res = ra.run_errand_get_messages(ra.thread_id,ra.assistant.id,ra.instructions)
-print(res[:199])
+print(res)
 print("Output Tokens " + str(token_count(str(res))))
 # print(ra.assistant)
 
