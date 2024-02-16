@@ -15,25 +15,23 @@ class OpenAIAssistant:
         self.name = assistant_name
         self.instructions =   instructions
         self.model = model
+        self.file_paths = []
         self.assistant = self.create_assistant_on_init()
-    
-    def update_system_prompt(self):
-        schema = {
-        "workout_plan_name":"Beginner Workout",
-        "goal":"Weight Loss",
-        "workouts":[{
-            "name":"Dumbell Curls",
-            "sets":3,
-            "repetitions":3,
-            "rest":"20",
-            "rest_unit":"minutes",
-            "difficulty":"easy",
-            "body_part_focus":"chest",
-            "equipments_needed":["Dumbell", "Bench"],
-            "excercise_category":"Muscle Gain"
-        },{}]}
 
-        val = f"{self.instructions} in the format {json.dumps(schema)}"
+    def upload_file(self, file_path):
+        
+        if file_path not in self.file_paths:
+            self.file_paths.append(file_path)
+            file = self.client.files.create( file=open(file_path, "rb"),  purpose='assistants')
+            # if file.id not in self.file_ids:
+                # self.file_ids.append(file.id)    
+        print('file uploaded')
+
+
+    
+    def update_system_prompt(self, prompt):
+       
+        val = prompt
 
         self.instructions = val
 
@@ -97,13 +95,16 @@ class OpenAIAssistant:
             print(str(e))
 
 
-agent = OpenAIAssistant()
+agent = OpenAIAssistant(assistant_name="SecureBot")
 
-agent.update_system_prompt()
+agent.update_system_prompt("You are a AI security expert, answer all questions based on information in your knowledge base")
+
+agent.upload_file("owasp_testing.pdf")
+
 
 agent.create_thread()
 
-agent.create_message(agent.thread_id,"Give me a solid workout plan")
+agent.create_message(agent.thread_id,"What is OWASP?")
 res = agent.run_errand_get_messages(agent.thread_id,agent.assistant.id,agent.instructions)
 print(res)
 

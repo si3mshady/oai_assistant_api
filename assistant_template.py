@@ -118,7 +118,8 @@ class Retrieval_Assistant:
                 )
 
             messages = self.client.beta.threads.messages.list( thread_id=thread_id )
-            clean_message =  messages.data[0].content[0].text.value 
+            clean_message =  messages.data[0].content[0].text.value
+            clean_message = clean_message.split('```json')[1].split('```')
 
             # return {"response": str(clean_message)}
             return clean_message 

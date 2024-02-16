@@ -102,6 +102,7 @@ class Retrieval_Assistant:
 
             messages = self.client.beta.threads.messages.list( thread_id=thread_id )
             clean_message =  messages.data[0].content[0].text.value 
+            # json.load(clean_message)
 
             return {"response": str(clean_message)}
         except Exception as e:
