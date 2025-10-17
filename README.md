@@ -1,7 +1,3 @@
-Here’s a clean, professional **README.md** you can include with that code. It explains what the script does, how to set it up, and how to use it.
-
----
-
 # 🧠 OpenAIAssistant
 
 This project provides a lightweight Python wrapper class around the **OpenAI Assistants API (beta)** to automate message threads, runs, and assistant creation.
@@ -158,8 +154,4 @@ roboto.create_prompt_message = "Explain quantum computing in simple terms."
 
 ## 📜 License
 
-MIT License © 2025 [Your Name]
-
----
-
-Would you like me to format it with Markdown badges and emojis (like “built with Python 🐍” or “powered by OpenAI ⚡”) to make it more GitHub-ready?
+MIT License © 2025 
